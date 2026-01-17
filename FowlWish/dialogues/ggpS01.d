@@ -47,7 +47,7 @@ END
 IF ~~ THEN BEGIN 7
 	SAY ~Excellent! ...Or should I say 'eggcellent'? Sorry. Anyway, I'll be here, awaiting your return!~
 IF ~~ THEN DO ~
-   SetGlobal("GGPSpider","GLOBAL",1)~ EXIT
+       AddJournalEntry(@5101, QUEST) SetGlobal("GGPSpider","GLOBAL",1)~ EXIT
 END
 
 
@@ -63,7 +63,8 @@ END
 
 IF ~~ THEN BEGIN 11
 	SAY ~Perfect! This is great. I'll just take this, and you can take this candle. I don't think the Lord and Lady of the house will be too upset to have it gone. I don't know how they expected a chicken to be able to blow out a candle...~
-IF ~~ THEN DO ~SetGlobal("GGPSpider","GLOBAL",2) TakePartyItem("MISC60") GiveItemCreate("GGPWC",Player1,1,1,0) AddexperienceParty(6000) ~ EXIT
+IF ~~ THEN DO ~
+       AddJournalEntry(@5102, QUEST) SetGlobal("GGPSpider","GLOBAL",2) TakePartyItem("MISC60") GiveItemCreate("GGPWC",Player1,1,1,0) AddexperienceParty(6000) ~ EXIT
 END
 
 IF ~~ THEN BEGIN 12

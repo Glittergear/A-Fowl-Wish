@@ -2,7 +2,7 @@ BEGIN d_GGPDG //Glittergear's Party Door Guard
 
 IF ~Global("GGPMQ","GLOBAL",0)~ THEN BEGIN 99
 	SAY ~Hey! We aren't ready for party-goers yet.~
-IF ~~ THEN DO ~ ActionOverride(Player1,LeaveAreaLUA("AR1000","",[1085.1530],4)) ActionOverride(Player2,LeaveAreaLUA("AR1000","",[1095.1530],4)) ActionOverride(Player3,LeaveAreaLUA("AR1000","",[1085.1540],4)) ActionOverride(Player4,LeaveAreaLUA("AR1000","",[1095.1540],4)) ActionOverride(Player5,LeaveAreaLUA("AR1000","",[1075.1530],4)) ActionOverride(Player6,LeaveAreaLUA("AR1000","",[1085.1535],4))~ EXIT
+IF ~~ THEN DO ~ ActionOverride(Player1,LeaveAreaLUA("AR1000","",[1210.1404],4)) ActionOverride(Player2,LeaveAreaLUA("AR1000","",[1220.1404],4)) ActionOverride(Player3,LeaveAreaLUA("AR1000","",[1210.1414],4)) ActionOverride(Player4,LeaveAreaLUA("AR1000","",[1170.1400],4)) ActionOverride(Player5,LeaveAreaLUA("AR1000","",[1170.1410],4)) ActionOverride(Player6,LeaveAreaLUA("AR1000","",[1210.1400],4))~ EXIT
 END
 
 
@@ -13,7 +13,7 @@ IF ~Global("GGDoorOpen","GLOBAL",0)~ THEN BEGIN 0
 	+ ~ReputationLT(Player1,8)~+ ~I am <CHARNAME>. Perhaps you've heard of me?~ GOTO 2B
 	+ ~PartyGoldGT(1999)~+ ~By the right of gold, if you get my meaning. Say.... 2,000?~ GOTO 3
 	+ ~PartyHasItem("GGPMB")~+ ~I’m afraid I lost my invitation, but I do have this gift.~ GOTO 4
-	+ ~Class(Player1,BARD_ALL) Class(Player2,BARD_ALL) Class(Player3,BARD_ALL) Class(Player4,BARD_ALL) Class(Player5,BARD_ALL) Class(Player6,BARD_ALL)~+ ~We have a bard. We're the hired entertainment.~ GOTO 5
+	+ ~OR(6) Class(Player1,BARD_ALL) Class(Player2,BARD_ALL) Class(Player3,BARD_ALL) Class(Player4,BARD_ALL) Class(Player5,BARD_ALL) Class(Player6,BARD_ALL)~+ ~We have a bard. We're the hired entertainment.~ GOTO 5
 	++ ~I'll go find my invitation.~ GOTO 6
 END
 
@@ -23,7 +23,7 @@ IF ~~ THEN BEGIN 1
 	+ ~ReputationLT(Player1,8)~+ ~I am <CHARNAME>. Perhaps you've heard of me?~ GOTO 2B
 	+ ~PartyGoldGT(1999)~+ ~By the right of gold, if you get my meaning. Say.... 2,000?~ GOTO 3
 	+ ~PartyHasItem("GGPMB")~+ ~I’m afraid I lost my invitation, but I do have this gift.~ GOTO 4
-	+ ~Class(Player1,BARD_ALL) Class(Player2,BARD_ALL) Class(Player3,BARD_ALL) Class(Player4,BARD_ALL) Class(Player5,BARD_ALL) Class(Player6,BARD_ALL)~+ ~We have a bard. We're the hired entertainment.~ GOTO 5
+	+ ~OR(6)Class(Player1,BARD_ALL) Class(Player2,BARD_ALL) Class(Player3,BARD_ALL) Class(Player4,BARD_ALL) Class(Player5,BARD_ALL) Class(Player6,BARD_ALL)~+ ~We have a bard. We're the hired entertainment.~ GOTO 5
 	++ ~I'll go find my invitation.~ GOTO 6
 END
 
