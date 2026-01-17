@@ -1,0 +1,131 @@
+BACKUP ~FowlWish/backup~
+AUTHOR ~Glittergear~
+VERSION ~1.0~
+
+//// Goals for upcoming versions
+////	Compatibility with Lava's "I Shall Never Forget" (just need to move were I put my door)
+////	Add journal entries
+
+
+BEGIN ~FowlWish Installation~
+
+//spawns the spellcaster in the Copper Coronet
+EXTEND_TOP ~AR0406.bcs~ ~FowlWish/Scripts/AR0406.baf~
+
+//spawns the TLS in Pai'na's nest
+EXTEND_TOP ~AR0804.bcs~ ~FowlWish/Scripts/AR0804.baf~
+
+
+//add millet berries to Mira's shop//shop04
+COPY_EXISTING ~BSHOP01.sto~ ~override~
+ADD_STORE_ITEM ~GGPMB.itm~ #10 #0 #0 ~IDENTIFIED~ #5
+COPY ~FowlWish/items/GGPMB.itm~ ~override~
+
+//adds dead spider body to Tasty Looking Spider
+//maybe give to Pai'Na instead?
+COPY_EXISTING ~GGPTLS.cre~ ~override/GGPTLS.cre~
+ADD_CRE_ITEM ~MISC60.itm~ #0 #0 #0 ~IDENTIFIED~ ~inv~
+
+//dialogues
+COMPILE ~FowlWish/Dialogues/ggpDG.d~
+COMPILE ~FowlWish/Dialogues/ggpK.d~
+COMPILE ~FowlWish/Dialogues/ggpNM.d~
+COMPILE ~FowlWish/Dialogues/ggpNW.d~
+COMPILE ~FowlWish/Dialogues/ggpSC.d~
+COMPILE ~FowlWish/Dialogues/ggpS01.d~
+
+//creatures
+COPY ~FowlWish/creatures/GGPCHI01.cre~ ~override/GGPCHI01.cre~
+	SAY NAME1 ~Horatio the Birthday Boy~
+	SAY NAME2 ~Horatio the Birthday Boy~
+
+COPY ~FowlWish/creatures/GGPCHI02.cre~ ~override/GGPCHI02.cre~
+	SAY NAME1 ~Holly~
+	SAY NAME2 ~Holly~
+
+COPY ~FowlWish/creatures/GGPKID01.cre~ ~override/GGPKID01.cre~
+	SAY NAME1 ~Little Boy~
+	SAY NAME2 ~Little Boy~
+
+COPY ~FowlWish/creatures/GGPN01.cre~ ~override/GGPN01.cre~
+	SAY NAME1 ~Lord Gorinel~
+	SAY NAME2 ~Lord Gorinel~
+
+COPY ~FowlWish/creatures/GGPN02.cre~ ~override/GGPN02.cre~
+	SAY NAME1 ~Lady Gorinel~
+	SAY NAME2 ~Lady Gorinel~
+
+COPY ~FowlWish/creatures/GGPS01.cre~ ~override/GGPS01.cre~
+	SAY NAME1 ~Gorinel's Servant~
+	SAY NAME2 ~Gorinel's Servant~
+
+COPY ~FowlWish/creatures/GGPMQG.cre~ ~override/GGPMQG.cre~
+	SAY NAME1 ~Panicking Mage Apprentice~
+	SAY NAME2 ~Panicking Mage Apprentice~
+
+COPY ~FowlWish/creatures/GGPDG.cre~ ~override/GGPDG.cre~
+	SAY NAME1 ~Door Guard~
+	SAY NAME2 ~Door Guard~
+
+COPY ~FowlWish/creatures/GGPTLS.cre~ ~override/GGPTLS.cre~
+	SAY NAME1 ~Tasty Looking Spider~
+	SAY NAME2 ~Tasty Looking Spider~
+
+
+//items
+COPY ~FowlWish/items/GGPMB.itm~ ~override/GGPMB.itm~ 
+     SAY NAME1 ~Millet Berries~
+     SAY NAME2 ~Millet Berries~
+     SAY DESC ~Birds love these tasty berries!~
+
+COPY ~FowlWish/items/GGPWC.itm~ ~override/GGPWC.itm~ 
+     SAY NAME1 ~Candle of Limited Wish~
+     SAY NAME2 ~Candle of Limited Wish~
+     SAY DESC ~This is the candle you were looking for. Return it... or make a wish yourself.~
+
+COPY ~FowlWish/items/GGPSBC.itm~ ~override/GGPSBC.itm~ 
+     SAY NAME1 ~Sir Beatrice the Brave~
+     SAY NAME2 ~Sir Beatrice the Brave~
+     SAY DESC ~Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day.~
+
+
+//adds transition to Gov District house
+COPY_EXISTING ar1000.are override
+  LPF fj_are_structure
+    INT_VAR
+    fj_type         = 2    //travel
+    fj_box_left     = 1085
+    fj_box_top      = 1480
+    fj_box_right    = 1195
+    fj_box_bottom   = 1570
+    fj_cursor_idx   = 30   // door symbol
+ //   fj_flags        = 4    // party required
+ //   fj_flags        = 512  // NPCs can't pass
+ //   fj_flags        = 516  // party required, NPCs can't pass
+    fj_vertex_0     = 1085 + (1530 << 16)
+    fj_vertex_1     = 1111 + (1570 << 16)
+    fj_vertex_2     = 1195 + (1505 << 16)
+    fj_vertex_3     = 1175 + (1480 << 16)
+    STR_VAR
+    fj_structure_type   = region
+    fj_name             = Tran_GGP001 // name of this travel region so you can address it via script etc.
+    fj_destination_area = GGP001	// *.ARE
+    fj_destination_name = Exit1000 // name of exitpoint in destination area
+  END
+
+//exit point for back travel
+  LPF fj_are_structure
+    INT_VAR
+    fj_loc_x       = 1095
+    fj_loc_y       = 1500
+    fj_orientation = 6   // NW
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = GGP
+  END
+  
+
+//add map note
+COPY_EXISTING ~ar1000.are~ ~override/ar1000.are~
+	ADD_MAP_NOTE #1210 #1550 ~violet~ 
+	~Gorinel Estate~

@@ -1,0 +1,10 @@
+//spawns the mage in the copper coronet
+
+IF
+Global("GGPMQGspawner","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("GGPMQG",[914.1222],3)  // To choose your own coordinates, choose a spot in the game and press CTRL-X
+SetGlobal("GGPMQGspawner","GLOBAL",1)
+Continue()
+END
