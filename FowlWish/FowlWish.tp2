@@ -40,14 +40,15 @@ END
 AUTO_TRA ~weidu_external/FowlWish/Languages/autotra/%s~
 
 LANGUAGE ~English~
-         ~english~   
+         ~english~
          ~FowlWish/Languages/english/JournalEntries.tra~
+         ~FowlWish/Languages/english/setup.tra~
 
 
-BEGIN ~FowlWish Installation~
+BEGIN @1 /* FowlWish Installation */
 DESIGNATED 0
 LABEL ~Fowl_Wish-Glittergear~
-REQUIRE_PREDICATE GAME_IS ~bg2ee tob bgt eet~ ~Need ToB, BGT, BG2EE or EET.~
+REQUIRE_PREDICATE GAME_IS ~bg2ee tob bgt eet~ @2 /* Need ToB, BGT, BG2EE or EET. */
 
 ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 USING ~weidu_external/FowlWish/Languages/autotra/%s/JournalEntries.tra~
 
@@ -75,58 +76,58 @@ COMPILE ~FowlWish/Dialogues/ggpS01.d~
 
 //creatures
 COPY ~FowlWish/creatures/GGPCHI01.cre~ ~override/GGPCHI01.cre~
-	SAY NAME1 ~Horatio the Birthday Boy~
-	SAY NAME2 ~Horatio the Birthday Boy~
+	SAY NAME1 @3 /* Horatio the Birthday Boy */
+	SAY NAME2 @3 /* Horatio the Birthday Boy */
 
 COPY ~FowlWish/creatures/GGPCHI02.cre~ ~override/GGPCHI02.cre~
-	SAY NAME1 ~Holly~
-	SAY NAME2 ~Holly~
+	SAY NAME1 @4 /* Holly */
+	SAY NAME2 @4 /* Holly */
 
 COPY ~FowlWish/creatures/GGPKID01.cre~ ~override/GGPKID01.cre~
-	SAY NAME1 ~Little Boy~
-	SAY NAME2 ~Little Boy~
+	SAY NAME1 @5 /* Little Boy */
+	SAY NAME2 @5 /* Little Boy */
 
 COPY ~FowlWish/creatures/GGPN01.cre~ ~override/GGPN01.cre~
-	SAY NAME1 ~Lord Gorinel~
-	SAY NAME2 ~Lord Gorinel~
+	SAY NAME1 @6 /* Lord Gorinel */
+	SAY NAME2 @6 /* Lord Gorinel */
 
 COPY ~FowlWish/creatures/GGPN02.cre~ ~override/GGPN02.cre~
-	SAY NAME1 ~Lady Gorinel~
-	SAY NAME2 ~Lady Gorinel~
+	SAY NAME1 @7 /* Lady Gorinel */
+	SAY NAME2 @7 /* Lady Gorinel */
 
 COPY ~FowlWish/creatures/GGPS01.cre~ ~override/GGPS01.cre~
-	SAY NAME1 ~Gorinel's Servant~
-	SAY NAME2 ~Gorinel's Servant~
+	SAY NAME1 @8 /* Gorinel's Servant */
+	SAY NAME2 @8 /* Gorinel's Servant */
 
 COPY ~FowlWish/creatures/GGPMQG.cre~ ~override/GGPMQG.cre~
-	SAY NAME1 ~Panicking Mage Apprentice~
-	SAY NAME2 ~Panicking Mage Apprentice~
+	SAY NAME1 @9 /* Panicking Mage Apprentice */
+	SAY NAME2 @9 /* Panicking Mage Apprentice */
 
 COPY ~FowlWish/creatures/GGPDG.cre~ ~override/GGPDG.cre~
-	SAY NAME1 ~Door Guard~
-	SAY NAME2 ~Door Guard~
+	SAY NAME1 @10 /* Door Guard */
+	SAY NAME2 @10 /* Door Guard */
 
 COPY ~FowlWish/creatures/GGPTLS.cre~ ~override/GGPTLS.cre~
-	SAY NAME1 ~Tasty Looking Spider~
-	SAY NAME2 ~Tasty Looking Spider~
+	SAY NAME1 @11 /* Tasty Looking Spider */
+	SAY NAME2 @11 /* Tasty Looking Spider */
 	ADD_CRE_ITEM ~MISC60.itm~ #0 #0 #0 ~IDENTIFIED~ ~inv~
 
 
 //items
-COPY ~FowlWish/items/GGPMB.itm~ ~override/GGPMB.itm~ 
-     SAY NAME1 ~Millet Berries~
-     SAY NAME2 ~Millet Berries~
-     SAY DESC ~Birds love these tasty berries!~
+COPY ~FowlWish/items/GGPMB.itm~ ~override/GGPMB.itm~
+     SAY NAME1 @12 /* Millet Berries */
+     SAY NAME2 @12 /* Millet Berries */
+     SAY DESC @13 /* Birds love these tasty berries! */
 
-COPY ~FowlWish/items/GGPWC.itm~ ~override/GGPWC.itm~ 
-     SAY NAME1 ~Candle of Limited Wish~
-     SAY NAME2 ~Candle of Limited Wish~
-     SAY DESC ~This is the candle you were looking for. Return it... or make a wish yourself.~
+COPY ~FowlWish/items/GGPWC.itm~ ~override/GGPWC.itm~
+     SAY NAME1 @14 /* Candle of Limited Wish */
+     SAY NAME2 @14 /* Candle of Limited Wish */
+     SAY DESC @15 /* This is the candle you were looking for. Return it... or make a wish yourself. */
 
-COPY ~FowlWish/items/GGPSBC.itm~ ~override/GGPSBC.itm~ 
-     SAY NAME1 ~Sir Beatrice the Brave~
-     SAY NAME2 ~Sir Beatrice the Brave~
-     SAY DESC ~Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day.~
+COPY ~FowlWish/items/GGPSBC.itm~ ~override/GGPSBC.itm~
+     SAY NAME1 @16 /* Sir Beatrice the Brave */
+     SAY NAME2 @16 /* Sir Beatrice the Brave */
+     SAY DESC @17 /* Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day. */
 
 
 //add millet berries to Mira's shop//shop04
@@ -167,4 +168,4 @@ COPY_EXISTING ~ar1000.are~  ~override~
     fj_structure_type = entrance
     fj_name           = Tran_GGP001
   END
-	ADD_MAP_NOTE #1250 #1445 ~violet~ ~Gorinel Estate~
+	ADD_MAP_NOTE #1250 #1445 ~violet~ @18 /* Gorinel Estate */

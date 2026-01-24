@@ -1,4 +1,4 @@
-# Fowl Wish
+# A Fowl Wish
 
 [![Release](https://img.shields.io/github/v/release/Glittergear/FowlWish?include_prereleases&color=41788a)](https://github.com/Glittergear/FowlWish/releases)
 [![Published](https://img.shields.io/github/release-date-pre/Glittergear/FowlWish?display_date=published_at&label=published&color=014a69)](https://github.com/Glittergear/FowlWish/releases/latest)
@@ -26,4 +26,6 @@
 1.3 Fixed door, fixed bard dialogue option, added journal entries!
 
 1.4 : 
- - 
+ - LABEL / REQUIRE_PREDICATE / DESIGNATED / INI / README / WeiduModPackager
+ - Delete unused store
+ - Traification
