@@ -29,3 +29,5 @@
  - LABEL / REQUIRE_PREDICATE / DESIGNATED / INI / README / WeiduModPackager
  - Delete unused store
  - Traification
+ - Polishing
+

@@ -123,11 +123,13 @@ COPY ~FowlWish/items/GGPWC.itm~ ~override/GGPWC.itm~
      SAY NAME1 @14 /* Candle of Limited Wish */
      SAY NAME2 @14 /* Candle of Limited Wish */
      SAY DESC @15 /* This is the candle you were looking for. Return it... or make a wish yourself. */
+     SAY UNIDENTIFIED_DESC @15 /* This is the candle you were looking for. Return it... or make a wish yourself. */
 
 COPY ~FowlWish/items/GGPSBC.itm~ ~override/GGPSBC.itm~
      SAY NAME1 @16 /* Sir Beatrice the Brave */
      SAY NAME2 @16 /* Sir Beatrice the Brave */
      SAY DESC @17 /* Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day. */
+     SAY UNIDENTIFIED_DESC @17 /* Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day. */
 
 
 //add millet berries to Mira's shop//shop04
