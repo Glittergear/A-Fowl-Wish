@@ -1,10 +1,10 @@
 //spawns the Tasty Looking Spider in the Pai'Na's nest
 
 IF
-Global("GGPTLSspawner","GLOBAL",0)
+	Global("GGPTLSspawner","MYAREA",0)
 THEN
-RESPONSE #100
-CreateCreature("GGPTLS",[460.320],3)  // To choose your own coordinates, choose a spot in the game and press CTRL-X
-SetGlobal("GGPTLSspawner","GLOBAL",1)
-Continue()
+	RESPONSE #100
+		CreateCreature("GGPTLS",[460.320],3)
+		SetGlobal("GGPTLSspawner","MYAREA",1)
+		Continue()
 END

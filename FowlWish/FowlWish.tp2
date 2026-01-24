@@ -1,37 +1,68 @@
-BACKUP ~FowlWish/backup~
+BACKUP ~weidu_external/FowlWish/backup~
 AUTHOR ~Glittergear~
-VERSION ~1.3~ //final (?) polish before the eventual 2.0
+VERSION ~1.4~
+
+ALWAYS
+
+    //Copies tra files into the autotra-folder (to leave the originals untouched)
+    DEFINE_ACTION_FUNCTION autotra_workaround BEGIN
+      COPY ~FowlWish/Languages/english~			~weidu_external/FowlWish/Languages/autotra/%LANGUAGE%~
+      COPY ~FowlWish/Languages/%LANGUAGE%~			~weidu_external/FowlWish/Languages/autotra/%LANGUAGE%~
+    END
+
+    LAF autotra_workaround END
+
+// Convert tra files in UTF8 if EE and let them in ANSI if oBG
+
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+//  ACTION_DEFINE_ARRAY FowlWish_noconvert BEGIN install END
+
+		ACTION_DEFINE_ARRAY FowlWish_reload BEGIN setup JournalEntries END
+
+			LAF HANDLE_CHARSETS
+				INT_VAR
+				infer_charsets = 1
+				STR_VAR
+				tra_path = EVAL ~weidu_external/FowlWish/Languages/autotra~
+				out_path = EVAL ~weidu_external/FowlWish/Languages/autotra/UTF8~
+				iconv_path = ~FowlWish/Languages/autotra/iconv~
+//				 noconvert_array = FowlWish_noconvert
+				reload_array = FowlWish_reload
+			END
+
+	// UTF8 only
+	COPY ~weidu_external/FowlWish/Languages/autotra/UTF8/%LANGUAGE%~				~weidu_external/FowlWish/Languages/autotra/%LANGUAGE%~
+	END
+
+END
 
 
-AUTO_TRA ~FowlWish/translations/%s~ //The "%s" reads in the chosen language folder via LANGUAGE. Currently there is only one.
-
+AUTO_TRA ~weidu_external/FowlWish/Languages/autotra/%s~
 
 LANGUAGE ~English~
          ~english~   
-         ~FowlWish/translations/english/JournalEntries.tra~
+         ~FowlWish/Languages/english/JournalEntries.tra~
 
 
 BEGIN ~FowlWish Installation~
+DESIGNATED 0
+LABEL ~Fowl_Wish-Glittergear~
+REQUIRE_PREDICATE GAME_IS ~bg2ee tob bgt eet~ ~Need ToB, BGT, BG2EE or EET.~
 
-ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 USING ~FowlWish/translations/english/JournalEntries.tra~
+ADD_JOURNAL TITLE (@5099) @5100 @5101 @5102 @5103 @5104 USING ~weidu_external/FowlWish/Languages/autotra/%s/JournalEntries.tra~
+
 
 COPY ~FowlWish/areas/GGP001.are~ ~override~
-COPY ~FowlWish/scripts/GGPDGs.bcs~ ~override~
+COMPILE ~FowlWish/scripts/GGPDGs.baf~
+
 
 //spawns the spellcaster in the Copper Coronet
 EXTEND_TOP ~AR0406.bcs~ ~FowlWish/Scripts/AR0406.baf~
 
+
 //spawns the TLS in Pai'na's nest
 EXTEND_TOP ~AR0804.bcs~ ~FowlWish/Scripts/AR0804.baf~
 
-
-//add millet berries to Mira's shop//shop04
-COPY_EXISTING ~BSHOP01.sto~ ~override~
-ADD_STORE_ITEM ~GGPMB~ #10 #0 #0 ~IDENTIFIED~ #5
-COPY ~FowlWish/items/GGPMB.itm~ ~override~
-
-COPY ~FowlWish/creatures/GGPTLS.cre~ ~override~
-ADD_CRE_ITEM ~MISC60.itm~ #0 #0 #0 ~IDENTIFIED~ ~inv~
 
 //dialogues
 COMPILE ~FowlWish/Dialogues/ggpDG.d~
@@ -40,6 +71,7 @@ COMPILE ~FowlWish/Dialogues/ggpNM.d~
 COMPILE ~FowlWish/Dialogues/ggpNW.d~
 COMPILE ~FowlWish/Dialogues/ggpSC.d~
 COMPILE ~FowlWish/Dialogues/ggpS01.d~
+
 
 //creatures
 COPY ~FowlWish/creatures/GGPCHI01.cre~ ~override/GGPCHI01.cre~
@@ -77,6 +109,7 @@ COPY ~FowlWish/creatures/GGPDG.cre~ ~override/GGPDG.cre~
 COPY ~FowlWish/creatures/GGPTLS.cre~ ~override/GGPTLS.cre~
 	SAY NAME1 ~Tasty Looking Spider~
 	SAY NAME2 ~Tasty Looking Spider~
+	ADD_CRE_ITEM ~MISC60.itm~ #0 #0 #0 ~IDENTIFIED~ ~inv~
 
 
 //items
@@ -94,6 +127,11 @@ COPY ~FowlWish/items/GGPSBC.itm~ ~override/GGPSBC.itm~
      SAY NAME1 ~Sir Beatrice the Brave~
      SAY NAME2 ~Sir Beatrice the Brave~
      SAY DESC ~Chickens are flightless, domesticated birds--and this one is looking for adventure! Sir Beatrice is known for her infectious bravery. She can cast Resist Fear for you once per day.~
+
+
+//add millet berries to Mira's shop//shop04
+COPY_EXISTING ~BSHOP01.sto~ ~override~
+	ADD_STORE_ITEM ~GGPMB~ #10 #0 #0 ~IDENTIFIED~ #5
 
 
 //adds transition to Gov District house
@@ -119,7 +157,6 @@ COPY_EXISTING ~ar1000.are~  ~override~
     fj_destination_area = GGP001	// *.ARE
     fj_destination_name = Exit1000 // name of exitpoint in destination area
   END
-
 //exit point for back travel
   LPF ~fj_are_structure~
     INT_VAR
@@ -130,9 +167,4 @@ COPY_EXISTING ~ar1000.are~  ~override~
     fj_structure_type = entrance
     fj_name           = Tran_GGP001
   END
-  
-
-//add map note
-COPY_EXISTING ~ar1000.are~ ~override/ar1000.are~
-	ADD_MAP_NOTE #1250 #1445 ~violet~ 
-	~Gorinel Estate~
+	ADD_MAP_NOTE #1250 #1445 ~violet~ ~Gorinel Estate~

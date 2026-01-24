@@ -16,7 +16,8 @@ IF ~~ THEN BEGIN 1
 END
 
 IF ~~ THEN BEGIN 2
-	SAY ~Hmph. Fine. Well, if you don't mind, I'm quite busy preparing for the party.~ IF ~~ THEN EXIT
+	SAY ~Hmph. Fine. Well, if you don't mind, I'm quite busy preparing for the party.~
+		IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN 3
@@ -46,8 +47,7 @@ END
 
 IF ~~ THEN BEGIN 7
 	SAY ~Excellent! ...Or should I say 'eggcellent'? Sorry. Anyway, I'll be here, awaiting your return!~
-IF ~~ THEN DO ~
-       AddJournalEntry(@5101, QUEST) SetGlobal("GGPSpider","GLOBAL",1)~ EXIT
+	IF ~~ THEN DO ~AddJournalEntry(@5101, QUEST) SetGlobal("GGPSpider","GLOBAL",1)~ EXIT
 END
 
 
@@ -63,17 +63,22 @@ END
 
 IF ~~ THEN BEGIN 11
 	SAY ~Perfect! This is great. I'll just take this, and you can take this candle. I don't think the Lord and Lady of the house will be too upset to have it gone. I don't know how they expected a chicken to be able to blow out a candle...~
-IF ~~ THEN DO ~
-       AddJournalEntry(@5102, QUEST) SetGlobal("GGPSpider","GLOBAL",2) TakePartyItem("MISC60") GiveItemCreate("GGPWC",Player1,1,1,0) AddexperienceParty(6000) ~ EXIT
+IF ~~ THEN DO ~AddJournalEntry(@5102, QUEST)
+				SetGlobal("GGPSpider","GLOBAL",2)
+				TakePartyItem("MISC60")
+				GiveItemCreate("GGPWC",Player1,1,1,0)
+				AddexperienceParty(6000)~ EXIT
 END
 
 IF ~~ THEN BEGIN 12
-	SAY ~Then why are you here? Get going!~ IF ~~ THEN EXIT
+	SAY ~Then why are you here? Get going!~
+	IF ~~ THEN EXIT
 END
 
 
 
 //dialogue for after spider body
 IF ~Global("GGPSpider","GLOBAL",2)~ THEN BEGIN 100
-	SAY ~Between you and me, you might not want to stay here much longer. I doubt that this cake is going to smell very good. And even if it somehow does, you don't want to be here when people start eating it!~ IF ~~ THEN EXIT
+	SAY ~Between you and me, you might not want to stay here much longer. I doubt that this cake is going to smell very good. And even if it somehow does, you don't want to be here when people start eating it!~
+		IF ~~ THEN EXIT
 END

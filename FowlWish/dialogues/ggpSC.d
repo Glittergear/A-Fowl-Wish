@@ -52,13 +52,13 @@ END
 
 
 IF ~~ THEN BEGIN 3
-	SAY ~Oh. Well, I’ll be here. Probably. Still looking for someone, if you change your mind. Please change your mind!~ IF ~~ THEN EXIT
+	SAY ~Oh. Well, I’ll be here. Probably. Still looking for someone, if you change your mind. Please change your mind!~
+	IF ~~ THEN EXIT
 END
 
 IF ~~ THEN BEGIN 4
 	SAY ~Oh, thank so much! Please let me know how it goes and come back when you get the candle! I'll be here. Probably.~
-IF ~~ THEN DO ~
-   SetGlobal("GGPMQ","GLOBAL",1) AddJournalEntry(@5100, QUEST)~ EXIT
+	IF ~~ THEN DO ~SetGlobal("GGPMQ","GLOBAL",1) AddJournalEntry(@5100,QUEST)~ EXIT
 END
 
 
@@ -72,18 +72,30 @@ END
 // The good ending
 IF ~~ THEN BEGIN 101
 	SAY ~Oh, thank you! Here, this is everything of value that I own. You deserve it. And I’ll tell everyone how helpful you were! Er… I’ll not tell them what you *did* since that would be dreadfully embarrassing for me, but I’ll say that you were very, very, very, very helpful! Here, take this gold I found. And this chicken, as well. I was going to use her to try to sneak myself into the party, but I couldn't figure out how to do so. I hope you like her! Farewell!~
-IF ~~ THEN DO ~
-    AddJournalEntry(@5103, QUEST_DONE) SetGlobal("MMPMQ","GLOBAL",2) TakePartyItem("GGPWC") ReputationInc(1) GiveGoldForce(4000) GiveItemCreate("GGPSBC",Player1,1,1,0) AddXPObject(Player1,15000) AddXPObject(Player2,15000) AddXPObject(Player3,15000) AddXPObject(Player4,15000) AddXPObject(Player5,15000) AddXPObject(Player6,15000) CreateVisualEffect("SPPORTAL",[914.1222]) DestroySelf()~ EXIT
+	IF ~~ THEN DO ~AddJournalEntry(@5103,QUEST_DONE)
+					SetGlobal("MMPMQ","GLOBAL",2)
+					TakePartyItem("GGPWC")
+					ReputationInc(1)
+					GiveGoldForce(4000)
+					GiveItemCreate("GGPSBC",Player1,1,1,0)
+					AddXPObject(Player1,15000)
+					AddXPObject(Player2,15000)
+					AddXPObject(Player3,15000)
+					AddXPObject(Player4,15000)
+					AddXPObject(Player5,15000)
+					AddXPObject(Player6,15000)
+					CreateVisualEffect("SPPORTAL",[914.1222])
+					DestroySelf()~ EXIT
 END
 
 // The bad ending
 IF ~~ THEN BEGIN 102
 	SAY ~You… you’ve what?! Oh, my life is over! Over! I’ll… I’ll fight you for it!~
-IF ~~ THEN DO ~
-    AddJournalEntry(@5104, QUEST_DONE) Enemy()~ EXIT
+	IF ~~ THEN DO ~AddJournalEntry(@5104,QUEST_DONE) Enemy()~ EXIT
 END
 
 //not yet
 IF ~~ THEN BEGIN 103
-	SAY ~Please hurry!~  IF ~~ THEN EXIT
+	SAY ~Please hurry!~
+	IF ~~ THEN EXIT
 END
