@@ -1,0 +1,15 @@
+@100  = ~Hé ! Nous ne sommes pas encore prêts à recevoir les invités.~
+@101  = ~Halte ! Qui va là ? De quel droit essayez-vous d'entrer dans cette demeure ?~
+@102  = ~Vous êtes drôlement sérieux pour le portier d'une fête d'anniversaire.~
+@103  = ~Je suis <CHARNAME>. Peut-être avez-vous entendu parler de moi ?~
+@104  = ~Du droit que confère l'or, si vous voyez ce que je veux dire. Disons... 2 000 pièces ?~
+@105  = ~J'ai bien peur d'avoir perdu mon invitation, mais j'ai ce cadeau.~
+@106  = ~Nous avons un barde. Nous sommes les artistes engagés pour la fête.~
+@107  = ~Je vais chercher mon invitation.~
+@108  = ~On ne me paie pas pour faire l'idiot. On me paie pour être sérieux et veiller à ce que personne ne s'incruste sans invitation. Alors, qu'est-ce qui vous amène ici ?~
+@109  = ~Oh, oui, j'ai entendu parler de vous ! Il est logique que quelqu'un comme vous ait été invité à la fête. Toutes mes excuses, je ne faisais que mon travail. Par ici, je vous prie. Oh, regardez l'heure ! C'est le moment de ma pause. Bonne fête !~
+@110  = ~Oh, oui, j'ai entendu parler de vous ! Je... euh... ne voudrais surtout pas me mettre en travers de votre chemin. Oh, regardez l'heure ! C'est le moment de ma pause. Bonne fête !~
+@111  = ~Je ne suis pas censé laisser entrer n'importe qui, mais... Oh, regardez l'heure ! C'est le moment de ma pause.~
+@112  = ~Oui, je vois. Si vous avez un cadeau, c'est forcément que vous étiez invité ! Pourquoi auriez-vous sinon un cadeau pour un poulet de compagnie ? Désolé que vous ayez perdu votre invitation ; j'ai entendu dire qu'elles étaient très réussies. Et oh, regardez ! C'est le moment de ma pause.~
+@113  = ~Oui, nous vous attendions. Entrez donc. Et oh, regardez ! C'est le moment de ma pause.~
+@114  = ~Si vous ne retrouvez pas votre invitation, allez donc acheter un cadeau pour le poulet dont c'est l'anniversaire. Pourquoi feriez-vous une chose pareille si vous n'étiez pas invité ?~
