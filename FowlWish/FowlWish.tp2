@@ -44,6 +44,11 @@ LANGUAGE ~English~
          ~FowlWish/Languages/english/JournalEntries.tra~
          ~FowlWish/Languages/english/setup.tra~
 
+LANGUAGE ~French (by Deratiseur)~
+         ~french~
+         ~FowlWish/Languages/french/JournalEntries.tra~
+         ~FowlWish/Languages/french/setup.tra~
+
 
 BEGIN @1 /* FowlWish Installation */
 DESIGNATED 0
