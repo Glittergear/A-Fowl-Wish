@@ -30,4 +30,5 @@
  - Delete unused store
  - Traification
  - Polishing
+ - French translation by IA
 
